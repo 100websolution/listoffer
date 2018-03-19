@@ -1420,45 +1420,7 @@ label.error p, label.success p, label.information p, div.error p, div.success p,
 .thanku .subheading{width: 95%;}
 .thanku .subheading:last-child{margin-bottom: 30px;}
 
-/*.formSteps{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    height: 100%;
-    background: #fff;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-	-moz-transition: all 300ms ease-in-out 0s;
-	-webkit-transition: all 300ms ease-in-out 0s;
-	transition: all 300ms ease-in-out 0s;
-}
-.formOn .formSteps{
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-.formStepsHeader{
-    background: no-repeat center;
-    -webkit-background-size: cover;
-    background-size: cover;
-    min-height: 50%;
-    position: relative;
-    padding: 120px 0;
-    color: #fff;
-    text-align: center;
-}
-.formStepsHeader:before{
-    position: absolute;
-    content: "";
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-}
-.formStepsHeader .heading, .formStepsHeader .subheading{color: inherit;}*/
+.pac-container{z-index: 9999;}
 
 /* SERVICE
 ---------------------------------*/
