@@ -37,7 +37,6 @@
 
 	<!-- js -->
 	<?php echo $this->Html->script(array(
-									'jquery',
 									'lib/jquery-1.12.2.min',
 									'lib/plugins',
 									'custom',
