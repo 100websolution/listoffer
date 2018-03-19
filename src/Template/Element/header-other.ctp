@@ -16,6 +16,15 @@ $session = $this->request->session();
 						<li><a href="<?php echo Router::url('/', true);?>#findAgent" class="findAgentLink">Find Agents Now</a></li>
 					</ul>
 				</nav>
+				<div data-sidebar="true" class="sidebar-right">
+                    <div class="sidebar_overlay"></div>
+                    <span class="responsive_btn sidebar-toggle"><span></span></span>
+                    <div class="sidebar-wrapper sidebar-default">
+                        <div class="sidebar-scroller">
+                            <ul class="sidebar-menu"></ul>
+                        </div>
+                    </div>
+                </div>
 			</div>
 			<div class="clear"></div>
 		</div>
