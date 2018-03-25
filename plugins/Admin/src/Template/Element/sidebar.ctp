@@ -109,36 +109,22 @@ $action = strtolower ($this->request->action);
 			<?php } ?>
                 <!-- Mortgage Status Management end -->
 				
-				<!-- Contacts Management end -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Contacts')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Contacts'): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'contacts', 'action' => 'list-data']); ?>">
-                        <i class="fa fa-envelope"></i>
-                        Contacts Management
+				<!-- Property for Sell and Buy Management end -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Submissions')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertySellListData' || $this->request->params['action'] == 'matchingPropertyBuyListData' || $this->request->params['action'] == 'viewPropertySell')): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-sell-list-data']);?>">
+                        <i class="fa fa-home"></i>
+                        Property For Sell
+                    </a>
+                </li>
+				<li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertyBuyListData' || $this->request->params['action'] == 'matchingPropertySellListData' || $this->request->params['action'] == 'viewPropertyBuy')): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-buy-list-data']); ?>">
+                        <i class="fa fa-home"></i>
+                        Property To Buy
                     </a>
                 </li>
 			<?php } ?>
-                <!-- Contacts Management start --> 
-                
-				<?php /*<!-- Newsletter Subscriptions Management end -->
-                <li class="<?php if($this->request->params['controller'] == 'NewsletterSubscriptions'): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'newsletter-subscriptions', 'action' => 'list-data']); ?>">
-                        <i class="fa fa-location-arrow"></i>
-                        Newsletter Subscriber
-                    </a>
-                </li>
-                <!-- Newsletter Subscriptions Management start -->*/?>
-				
-                <!-- Cms Management end -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Cms')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Cms'): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'cms', 'action' => 'list-data']); ?>">
-                        <i class="fa fa-book"></i>
-                        CMS Management
-                    </a>
-                </li>
-			<?php } ?>
-                <!-- Cms Management start -->
+                <!-- Property for Sell and Buy Management start -->
 				
 				<!-- Banner start -->
 			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('BannerSections')))) ){?>
@@ -350,22 +336,36 @@ $action = strtolower ($this->request->action);
 			<?php } ?>
                 <!-- Plan end -->
 				
-				<!-- Property for Sell and Buy Management end -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Submissions')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertySellListData' || $this->request->params['action'] == 'matchingPropertyBuyListData' || $this->request->params['action'] == 'viewPropertySell')): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-sell-list-data']);?>">
-                        <i class="fa fa-home"></i>
-                        Property For Sell
-                    </a>
-                </li>
-				<li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertyBuyListData' || $this->request->params['action'] == 'matchingPropertySellListData' || $this->request->params['action'] == 'viewPropertyBuy')): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-buy-list-data']); ?>">
-                        <i class="fa fa-home"></i>
-                        Property To Buy
+				<!-- Contacts Management end -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Contacts')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Contacts'): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'contacts', 'action' => 'list-data']); ?>">
+                        <i class="fa fa-envelope"></i>
+                        Contacts Management
                     </a>
                 </li>
 			<?php } ?>
-                <!-- Property for Sell and Buy Management start -->
+                <!-- Contacts Management start --> 
+                
+				<?php /*<!-- Newsletter Subscriptions Management end -->
+                <li class="<?php if($this->request->params['controller'] == 'NewsletterSubscriptions'): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'newsletter-subscriptions', 'action' => 'list-data']); ?>">
+                        <i class="fa fa-location-arrow"></i>
+                        Newsletter Subscriber
+                    </a>
+                </li>
+                <!-- Newsletter Subscriptions Management start -->*/?>
+				
+                <!-- Cms Management end -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Cms')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Cms'): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'cms', 'action' => 'list-data']); ?>">
+                        <i class="fa fa-book"></i>
+                        CMS Management
+                    </a>
+                </li>
+			<?php } ?>
+                <!-- Cms Management start -->
 				
 				<?php /*<!-- Settings Management start -->
                 <li class="<?php if($this->request->params['controller'] == 'Settings'): echo "active open"; endif; ?>">

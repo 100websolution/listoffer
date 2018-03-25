@@ -15,7 +15,7 @@ $session = $this->request->session();
                Full Name:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('full_name', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['user']['full_name'] ]); ?>
+               <?php echo $this->Form->input('full_name', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['user']['full_name'], 'readonly'=>true ]); ?>
             </div>
          </div>
 		 <div class="form-group row">
@@ -23,7 +23,7 @@ $session = $this->request->session();
                Email:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('email', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['user']['email'] ]); ?>
+               <?php echo $this->Form->input('email', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['user']['email'], 'readonly'=>true ]); ?>
             </div>
          </div>
 		 <div class="form-group row">
@@ -31,7 +31,7 @@ $session = $this->request->session();
                Phone:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('phone', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['user']['phone'] ]); ?>
+               <?php echo $this->Form->input('phone', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['user']['phone'], 'readonly'=>true ]); ?>
             </div>
          </div>
 		 <div class="form-group row">
@@ -45,7 +45,7 @@ $session = $this->request->session();
 				if($propertytobuyDetails['price']['price_1'] != NULL)$price2 .= '$'.$propertytobuyDetails['price']['price_1'].'K';
 				if($propertytobuyDetails['price']['price_type']=='B')$price2 .= ' - ';
 				if($propertytobuyDetails['price']['price_2'] != NULL)$price2 .= '$'.$propertytobuyDetails['price']['price_2'].'K';
-				echo $this->Form->input('price', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $price2]);
+				echo $this->Form->input('price', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $price2, 'readonly'=>true]);
 				?>
             </div>
          </div>
@@ -54,7 +54,7 @@ $session = $this->request->session();
                City:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('city', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['city']]); ?>
+               <?php echo $this->Form->input('city', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['city'], 'readonly'=>true]); ?>
             </div>
          </div>
 		 <div class="form-group row">
@@ -62,7 +62,7 @@ $session = $this->request->session();
                State:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('state_code', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['state_code']]); ?>
+               <?php echo $this->Form->input('state_code', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['state_code'], 'readonly'=>true]); ?>
             </div>
          </div>
 		 <div class="form-group row">
@@ -70,7 +70,7 @@ $session = $this->request->session();
                Plan:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('plan', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['plan']['title']]); ?>
+               <?php echo $this->Form->input('plan', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['plan']['title'], 'readonly'=>true]); ?>
             </div>
          </div>
 		 <div class="form-group row">
@@ -78,7 +78,7 @@ $session = $this->request->session();
 				Mortgage Status:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('mortgage_status', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['mortgage_status']['title']]); ?>
+               <?php echo $this->Form->input('mortgage_status', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => $propertytobuyDetails['mortgage_status']['title'], 'readonly'=>true]); ?>
             </div>
          </div>		 
 		 <div class="form-group row">
@@ -86,7 +86,7 @@ $session = $this->request->session();
                Created On:
             </label>
             <div class="col-sm-10">
-               <?php echo $this->Form->input('state_code', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => date('dS M Y',strtotime($propertytobuyDetails['created']))]); ?>
+               <?php echo $this->Form->input('state_code', ['type' => 'text', 'required' => true, 'label' => false, 'class' => 'form-control boxed', 'value' => date('dS M Y',strtotime($propertytobuyDetails['created'])), 'readonly'=>true]); ?>
             </div>
          </div>
          <div class="form-group row">
