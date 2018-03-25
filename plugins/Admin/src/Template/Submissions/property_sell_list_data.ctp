@@ -95,7 +95,7 @@
 							<div class="item-heading">Price</div>
 							<div>
 							<?php
-							if($propertyforsaleDetail['price']['price_type']=='U')echo 'Under ';else if($propertyforsaleDetail['price']['price_type']=='B')echo '';else 'Above ';
+							if($propertyforsaleDetail['price']['price_type']=='U')echo 'Under ';else if($propertyforsaleDetail['price']['price_type']=='B')echo '';else echo 'Above ';
 							if($propertyforsaleDetail['price']['price_1'] != NULL)echo '$'.$propertyforsaleDetail['price']['price_1'].'K';
 							if($propertyforsaleDetail['price']['price_type']=='B')echo ' - ';
 							if($propertyforsaleDetail['price']['price_2'] != NULL)echo '$'.$propertyforsaleDetail['price']['price_2'].'K';
@@ -130,13 +130,21 @@
 							<div class="item-actions-dropdown active">
 								<div class="item-actions-block options">
 								<?php
-								if( (array_key_exists('matching-property-buy-list-data',$session->read('permissions.'.strtolower('Submissions')))) && $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('matching-property-buy-list-data'))==1 ){
+								if( (array_key_exists('view-property-sell',$session->read('permissions.'.strtolower('Submissions')))) && $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('view-property-sell'))==1 ){
 								?>
-									<a class="btn btn-primary" href="<?php echo Router::url("/admin/submissions/matching-property-buy-list-data",true).'/'.base64_encode($propertyforsaleDetail->id).'/'.base64_encode($propertyforsaleDetail->state_code).'/'.base64_encode($propertyforsaleDetail->city).'/'.base64_encode($propertyforsaleDetail['price']['id']);?>" title="match" style="font-size:15px;">
-										Match
+									<a class="edit" href="<?php echo Router::url("/admin/submissions/view-property-sell",true).'/'.base64_encode($propertyforsaleDetail->id);?>" title="View Details">
+										<i class="fa fa-eye"></i>
 									</a>
 								<?php
 								}
+								echo '&nbsp;';
+								if( (array_key_exists('matching-property-buy-list-data',$session->read('permissions.'.strtolower('Submissions')))) && $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('matching-property-buy-list-data'))==1 ){
+								?>
+									<a class="edit" href="<?php echo Router::url("/admin/submissions/matching-property-buy-list-data",true).'/'.base64_encode($propertyforsaleDetail->id).'/'.base64_encode($propertyforsaleDetail->state_code).'/'.base64_encode($propertyforsaleDetail->city).'/'.base64_encode($propertyforsaleDetail['price']['id']);?>" title="Match Properties">
+										<i class="fa fa-home"></i>
+									</a>
+								<?php
+								}								
 								?>
 								</div>
 							</div>
