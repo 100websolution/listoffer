@@ -15,7 +15,7 @@
 			<div class="fright">
 				<ul class="sepereted_list">
 					<li><a href="index.html" class="companyname">List Offer</a> &copy; 2018. All Rights Reserved.</li>
-					<li>Developed by  <a href="https://www.techtimes-in.com/" target="_blank" rel="nofollow noopener noreferrer">Tech Times</a></li>
+					<li>Developed by  <a href="http://www.techtimes-in.com/" target="_blank" rel="nofollow noopener noreferrer">Tech Times</a></li>
 				</ul>
 				<input type="hidden" name="website_url" id="website_url" value="<?php echo Router::url('/', true);?>" />
 			</div>
