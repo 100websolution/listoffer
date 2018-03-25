@@ -123,10 +123,18 @@
 							<div class="item-actions-dropdown active">
 								<div class="item-actions-block options">
 								<?php
+								if( (array_key_exists('view-property-buy',$session->read('permissions.'.strtolower('Submissions')))) && $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('view-property-buy'))==1 ){
+								?>
+									<a class="edit" href="<?php echo Router::url("/admin/submissions/view-property-buy",true).'/'.base64_encode($propertytobuyDetail->id);?>" title="View Details">
+										<i class="fa fa-eye"></i>
+									</a>
+								<?php
+								}
+								echo '&nbsp;';
 								if( (array_key_exists('matching-property-sell-list-data',$session->read('permissions.'.strtolower('Submissions')))) && $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('matching-property-sell-list-data'))==1 ){
-								?>							 
-									<a class="btn btn-primary" href="<?php echo Router::url("/admin/submissions/matching-property-sell-list-data",true).'/'.base64_encode($propertytobuyDetail->id).'/'.base64_encode($propertytobuyDetail->state_code).'/'.base64_encode($propertytobuyDetail->city).'/'.base64_encode($propertytobuyDetail['price']['id']); ?>" title="match" style="font-size:15px;">
-										Match
+								?>
+									<a class="edit" href="<?php echo Router::url("/admin/submissions/matching-property-sell-list-data",true).'/'.base64_encode($propertytobuyDetail->id).'/'.base64_encode($propertytobuyDetail->state_code).'/'.base64_encode($propertytobuyDetail->city).'/'.base64_encode($propertytobuyDetail['price']['id']); ?>" title="Match Properties">
+										<i class="fa fa-home"></i>
 									</a>
 								<?php
 								}

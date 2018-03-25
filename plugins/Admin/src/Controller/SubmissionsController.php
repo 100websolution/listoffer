@@ -53,6 +53,33 @@ class SubmissionsController extends AppController{
     }
 	
 	/**
+     * View Property for Sell
+     * @param  string|null $page page type.
+     * @return \Cake\Network\Response|void renders view.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+    */    
+    public function viewPropertySell($id = NULL){
+        try{
+			$session = $this->request->session();
+			if( (empty($session->read('permissions.'.strtolower('Submissions'))) || (!array_key_exists('view-property-sell',$session->read('permissions.'.strtolower('Submissions')))) || $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('view-property-sell'))!=1) ){
+				$this->Flash->error(__("You don't have permission to access this page"));
+				return $this->redirect(['plugin' => 'admin', 'controller' => 'admin-details', 'action' => 'dashboard']);
+			}
+			$id = base64_decode($id);
+			if($id == NULL){
+				throw new NotFoundException(__('Page not found'));
+			}
+            $SubmissionsTable 		= TableRegistry::get('Admin.Submissions');
+            $propertyforsaleDetails = $SubmissionsTable->find('all',['contain'=>['Users'=>['fields'=>['id','email','full_name','phone']],'Prices'=>['fields'=>['id','price_type','price_1','price_2']],'Properties'=>['fields'=>['id','title']],'MortgageStatuses'=>['fields'=>['id','title']],'Plans'=>['fields'=>['id','title']]],'conditions'=>['Submissions.id'=>$id,'Submissions.user_type'=>'S']])->first()->toArray();
+			//pr($propertyforsaleDetails); die;
+			$this->set(compact('propertyforsaleDetails'));
+            $this->set('_serialize', ['propertyforsaleDetails']);
+        }catch (NotFoundException $e) {
+            throw new NotFoundException(__('There is an unexpected error'));
+        }
+    }
+	
+	/**
      * Delete Property for Sell
      * @param  string|null $page page type.
      * @return \Cake\Network\Response|void renders view.
@@ -145,6 +172,33 @@ class SubmissionsController extends AppController{
             $options['limit'] 		= $this->paginationLimit;
 			$SubmissionsTable 		= TableRegistry::get('Admin.Submissions');
             $propertytobuyDetails = $this->paginate($this->Submissions, $options);
+			//pr($propertytobuyDetails); die;
+			$this->set(compact('propertytobuyDetails'));
+            $this->set('_serialize', ['propertytobuyDetails']);
+        }catch (NotFoundException $e) {
+            throw new NotFoundException(__('There is an unexpected error'));
+        }
+    }
+	
+	/**
+     * View Property for Buy
+     * @param  string|null $page page type.
+     * @return \Cake\Network\Response|void renders view.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+    */    
+    public function viewPropertyBuy($id = NULL){
+        try{
+			$session = $this->request->session();
+			if( (empty($session->read('permissions.'.strtolower('Submissions'))) || (!array_key_exists('view-property-buy',$session->read('permissions.'.strtolower('Submissions')))) || $session->read('permissions.'.strtolower('Submissions').'.'.strtolower('view-property-buy'))!=1) ){
+				$this->Flash->error(__("You don't have permission to access this page"));
+				return $this->redirect(['plugin' => 'admin', 'controller' => 'admin-details', 'action' => 'dashboard']);
+			}
+			$id = base64_decode($id);
+			if($id == NULL){
+				throw new NotFoundException(__('Page not found'));
+			}
+            $SubmissionsTable 		= TableRegistry::get('Admin.Submissions');
+            $propertytobuyDetails = $SubmissionsTable->find('all',['contain'=>['Users'=>['fields'=>['id','email','full_name','phone']],'Prices'=>['fields'=>['id','price_type','price_1','price_2']],'Properties'=>['fields'=>['id','title']],'MortgageStatuses'=>['fields'=>['id','title']],'Plans'=>['fields'=>['id','title']]],'conditions'=>['Submissions.id'=>$id,'Submissions.user_type'=>'B']])->first()->toArray();
 			//pr($propertytobuyDetails); die;
 			$this->set(compact('propertytobuyDetails'));
             $this->set('_serialize', ['propertytobuyDetails']);

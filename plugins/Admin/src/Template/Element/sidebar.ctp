@@ -352,13 +352,13 @@ $action = strtolower ($this->request->action);
 				
 				<!-- Property for Sell and Buy Management end -->
 			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Submissions')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Submissions' && $this->request->params['action'] == 'propertySellListData'): echo "active open"; endif; ?>">
+                <li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertySellListData' || $this->request->params['action'] == 'matchingPropertyBuyListData' || $this->request->params['action'] == 'viewPropertySell')): echo "active open"; endif; ?>">
                     <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-sell-list-data']);?>">
                         <i class="fa fa-home"></i>
                         Property For Sell
                     </a>
                 </li>
-				<li class="<?php if($this->request->params['controller'] == 'Submissions' && $this->request->params['action'] == 'propertyBuyListData'): echo "active open"; endif; ?>">
+				<li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertyBuyListData' || $this->request->params['action'] == 'matchingPropertySellListData' || $this->request->params['action'] == 'viewPropertyBuy')): echo "active open"; endif; ?>">
                     <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-buy-list-data']); ?>">
                         <i class="fa fa-home"></i>
                         Property To Buy
